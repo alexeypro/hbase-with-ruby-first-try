@@ -1,0 +1,30 @@
+create 'userstable', {NAME => 'maininfo'}, {NAME => 'additionalinfo'}
+put 'userstable', '20091213093540', 'maininfo:fullname', 'Olexiy Prokhorenko'
+put 'userstable', '20091213093540', 'maininfo:email', 'olexiy@prokhorenko.us'     
+put 'userstable', '20091213093540', 'maininfo:password', 'zup3rpazzv0rd'
+put 'userstable', '20091213120030', 'maininfo:fullname', 'John Axe'
+put 'userstable', '20091213120030', 'maininfo:email', 'westla7@gmail.com'
+put 'userstable', '20091213120030', 'maininfo:password', 'john'
+
+create 'topicstable', {NAME => 'content'} 
+put 'topicstable', '20091213161745', 'content:name', 'Blackberry Bold 9700'
+put 'topicstable', '20091213161745', 'content:description', 'Discussion about Blackberry Bold 9700 and probably all other Blackberry phones.'
+
+create 'commentstable', {NAME => 'content'}, {NAME => 'postinginfo'} 
+put 'commentstable', '20091213161745-20091213120030-20091213172000', 'content:body', 'Hey, my first comment!'
+put 'commentstable', '20091213161745-20091213120030-20091213172000', 'postinginfo:author', '20091213120030'
+put 'commentstable', '20091213161745-20091213120030-20091213172000', 'postinginfo:topic', '20091213161745'
+put 'commentstable', '20091213161745-20091213120030-20091213172000', 'postinginfo:replyto', ''
+put 'commentstable', '20091213161745-20091213093540-20091213221000', 'content:body', 'I can comment on your comment!'
+put 'commentstable', '20091213161745-20091213093540-20091213221000', 'postinginfo:author', '20091213093540'
+put 'commentstable', '20091213161745-20091213093540-20091213221000', 'postinginfo:topic', '20091213161745'
+put 'commentstable', '20091213161745-20091213093540-20091213221000', 'postinginfo:replyto', '20091213161745-20091213120030-20091213172000'
+put 'commentstable', '20091213161745-20091213093540-20091213221250', 'content:body', 'And I can leave my own comment on topic...'
+put 'commentstable', '20091213161745-20091213093540-20091213221250', 'postinginfo:author', '20091213093540'
+put 'commentstable', '20091213161745-20091213093540-20091213221250', 'postinginfo:topic', '20091213161745'
+put 'commentstable', '20091213161745-20091213093540-20091213221250', 'postinginfo:replyto', ''
+
+create 'usersreferencestable', {NAME => 'comment'}
+put 'usersreferencestable', '20091213120030', 'comment:20091213161745-20091213120030-20091213172000', '20091213161745'
+put 'usersreferencestable', '20091213093540', 'comment:20091213161745-20091213093540-20091213221250', '20091213161745'
+put 'usersreferencestable', '20091213093540', 'comment:20091213161745-20091213093540-20091213221000', '20091213161745'
