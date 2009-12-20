@@ -11,7 +11,7 @@ class User
       @email = column.value if column.name == "maininfo:email"
       @password = column.value if column.name == "maininfo:password"
       @name = column.value if column.name == "maininfo:fullname"            
-      @created = Time.at(column.timestamp) if @created == nil
+      @created = Time.at(column.timestamp / 1000) if @created == nil
     end
   end
 end
@@ -23,7 +23,7 @@ def hello_user(user)
   print "\n"
 end
 
-client = HBase::Client.new("http://localhost:60050/api") 
+client = HBase::Client.new("http://localhost:8080") 
 
 row = client.show_row('userstable', '20091213093540')
 user = User.new(row)

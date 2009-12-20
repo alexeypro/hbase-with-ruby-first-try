@@ -40,7 +40,7 @@ def describe_user(user)
   print "\n"
 end
 
-client = HBase::Client.new('http://localhost:60050/api') 
+client = HBase::Client.new('http://localhost:8080') 
 
 # just creating new user object
 user = User.new()
